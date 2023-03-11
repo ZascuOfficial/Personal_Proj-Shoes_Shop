@@ -1,0 +1,406 @@
+/** Imports */
+
+@font-face {
+  font-family: 'Metropolis';
+  font-weight: 100;
+  src:
+    url('public/fonts/Metropolis/metropolis-thin-webfont.woff2') format('woff2')
+    url('public/fonts/Metropolis/metropolis-thin-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  font-weight: 400;
+  src:
+    url('public/fonts/Metropolis/metropolis-regular-webfont.woff2') format('woff2')
+    url('public/fonts/Metropolis/metropolis-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  font-weight: 500;
+  src:
+    url('public/fonts/Metropolis/metropolis-medium-webfont.woff2') format('woff2')
+    url('public/fonts/Metropolis/metropolis-medium-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  font-weight: 700;
+  src:
+    url('public/fonts/Metropolis/metropolis-bold-webfont.woff2') format('woff2')
+    url('public/fonts/Metropolis/metropolis-bold-webfont.woff') format('woff');
+}
+
+:root {
+  --clr-primary: #121212;
+  --clr-secondary: #F2F2F2;
+
+  --clr-secondary-lowered-80: rgba(242, 242, 242, 0.8);
+  --clr-secondary-lowered-70: rgba(242, 242, 242, 0.7);
+  --clr-secondary-lowered-60: rgba(242, 242, 242, 0.6);
+  --clr-secondary-lowered-50: rgba(242, 242, 242, 0.5);
+
+  --clr-blue: #70D1CD;
+  --clr-purple: #9D5AD1;
+  --clr-red: #FE5555;
+
+  --clr-blue-dark: #5C868A;
+  --clr-purple-dark: #633D7F;
+  --clr-red-dark: #A63F46;
+
+  --clr-accent: var(--clr-red);
+  --clr-accent-dark: var(--clr-red-dark);
+
+  --gradient-primary:
+    linear-gradient(
+      60deg,
+      #0F0F0F, 
+      rgba(18, 18, 18, 0.9), 
+      rgba(20, 20, 20, 0.8), 
+      rgba(33, 33, 33, 0.8)
+    );
+  
+  --gradient-accent: linear-gradient(
+    90deg,
+    var(--clr-accent-dark),
+    var(--clr-accent)
+  );
+
+  --ff-body: 'Open Sans', sans-serif;
+  --ff-heading: 'Metropolis', sans-serif;
+
+  --fw-thin: 100;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+}
+
+/** Global styles */
+
+*, *::before, *::after {
+  transition: all ease 150ms;
+}
+
+*::selection {
+  background: var(--clr-accent);
+  color: var(--clr-secondary);
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: 1.125rem;
+  background: var(--gradient-primary);
+  color: var(--clr-secondary);
+  backdrop-filter: blur(25px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-heading);
+}
+
+p {
+  color: var(--clr-secondary-lowered-70);
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+a {
+  color: var(--clr-secondary-lowered-80);
+  font-weight: var(--fw-light);
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.accent {
+  color: var(--clr-accent);
+}
+
+.bold {
+  font-weight: var(--fw-bold);
+}
+
+.highlighted {
+  color: var(--clr-secondary);
+}
+
+.gradient-decoration {
+  position: relative;
+  font-weight: var(--fw-thin);
+}
+
+.gradient-decoration::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--gradient-accent);
+  transform: rotate(-2.5deg);
+}
+
+/** Layout */
+
+.container {
+  width: 80%;
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+.container-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/** Hero Section */
+
+#hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding-block: 3rem;
+}
+
+.header-logo {
+  font-size: 2rem;
+  font-weight: var(--fw-medium);
+}
+
+.nav-list {
+  display: flex;
+  gap: 3.7rem;
+}
+
+.nav-link {
+  display: inline-block;
+  position: relative;
+  transition: all ease 50ms;
+}
+
+.nav-link:hover {
+  color: var(--clr-secondary);
+}
+
+.nav-link::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  position: absolute;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  margin-top: .25rem;
+  background: var(--clr-accent);
+}
+
+.nav-link:hover::after {
+  width: 75%;
+}
+
+.nav-link:active {
+  color: var(--clr-accent);
+}
+
+.nav-link:active::after {
+  background: var(--clr-secondary);
+}
+
+.header-cta-btn {
+  position: relative;
+  padding: .8rem 1rem;
+  font-weight: var(--fw-normal);
+  background: transparent;
+  border: 1px solid var(--clr-accent);
+}
+
+.header-cta-btn::before {
+  content: '';
+  width: 0;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: var(--clr-accent);
+}
+
+.header-cta-btn:hover::before {
+  width: 100%;
+}
+
+.header-cta-btn:active {
+  transition: all ease 50ms;
+  color: var(--clr-accent);
+  border-color: var(--clr-secondary);
+}
+
+.header-cta-btn:active::before {
+  background: var(--clr-secondary);
+}
+
+@media (min-width: 45rem) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Hero */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 5rem;
+}
+
+.hero-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  order: 2;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.hero-headline {
+  font-size: clamp(1.85rem, 10vw, 4.5rem);
+  font-weight: var(--fw-bold);
+}
+
+.hero-description {
+  width: 85%;
+  margin-inline: auto;
+}
+
+.hero-link {
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-inline: auto;
+  transition: all ease 75ms;
+}
+
+.hero-link a {
+  font-family: var(--ff-heading);
+  font-size: 1.5rem;
+  color: var(--clr-secondary);
+}
+
+.hero-link-icon {
+  width: 1.5rem;
+}
+
+.hero-link:hover {
+  opacity: .75;
+  gap: 1.5rem;
+}
+
+.hero-link:active {
+  opacity: 1;
+}
+
+@media (min-width: 75rem) {
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-intro {
+    order: 1;
+    text-align: left;
+    align-items: left;
+    margin-bottom: 0;
+  }
+
+  .hero-description {
+    margin-inline: 0;
+  }
+
+  .hero-link {
+    justify-content: flex-start;
+    margin-inline: 0;
+  }
+}
+
+/* Hero images */
+
+.hero-images {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5rem;
+  order: 1;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 38rem;
+  height: 15.85rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  margin-inline: auto;
+  background: url('/public/img/nike-shoe-1.png');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.hero-image-decoration {
+  width: 50%;
+  height: 10rem;
+  position: absolute;
+  right: -20%;
+  bottom: -5%;
+  z-index: -1;
+  background: url('/public/img/circle-pattern.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.hero-scroller {
+  display: flex;
+  gap: 8rem;
+}
+
+.bracket {
+  width: .8rem;
+  transition: all ease 50ms;
+}
+
+.bracket:hover {
+  opacity: .8;
+}
+
+.bracket:active {
+  opacity: 1;
+}
