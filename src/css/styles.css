@@ -361,7 +361,7 @@ img {
   order: 1;
 }
 
-.hero-image {
+#hero-image {
   width: 100%;
   max-width: 38rem;
   height: 15.85rem;
@@ -373,6 +373,7 @@ img {
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
+  transition: all ease 75ms;
 }
 
 .hero-image-decoration {
