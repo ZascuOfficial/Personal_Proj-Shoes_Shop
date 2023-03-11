@@ -10,6 +10,8 @@ In this project, I:
 - utilized CSS custom properties to my advantage
 - took in consideration smaller screen sizes
 
+**`This project was made for educational purposes and is not related by any means to the popular and well-known company Nike.`**
+
 ## 🖼️ [Live Preview Link](https://zascuofficial-kein.netlify.app/ "The live preview link")
 
 ![Preview Image](public/img/preview.png "The preview image")
