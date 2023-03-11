@@ -10,9 +10,9 @@ In this project, I:
 - utilized CSS custom properties to my advantage
 - took in consideration smaller screen sizes
 
-## 🖼️ [Live Preview Link](# "Not available")
+## 🖼️ [Live Preview Link](https://zascuofficial-kein.netlify.app/ "The live preview link")
 
-![Preview Image](# "Not available")
+![Preview Image](public/img/preview.png "The preview image")
 
 ## 💻 Technologies Used
 
